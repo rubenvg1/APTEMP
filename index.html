@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>APTEMP</title>
+  <link rel='stylesheet' href='https://unpkg.com/bulma@0.9.1/css/bulma.min.css'>
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+</head>
+
+<script src="main.js"></script>
+
+
+<body style="background-color: black;">
+
+
+  <a href="https://esp-32-flutter-firebase-d47ed-default-rtdb.firebaseio.com/.json"
+    download="Reporte2Mayo2010">
+    Descargar Archivo
+  </a>
+
+
+  <section id='app' class='hero is-link is-fullheight' style="background-color: black;">
+    <div class='hero-body' style="background-color: black;">
+      <div class='container'>
+        <div class='columns has-text-centered' style="border-radius: 5%;">
+          <div class='column' style="background-color: rgb(2, 95, 218);">
+            <h1 style='font-size: 8rem' style="color: black;" style="background: black;"
+              style="background-color: rgb(0, 0, 0);">APTEMP</h1>
+          </div>
+        </div>
+
+        <div class='columns'>
+          <div class='column has-text-centered'>
+            <h1 style='font-size: 4rem'>Humedad</h1>
+            <h1 id="tem " style='font-size: 7rem'>70</h1>
+
+            <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+
+            <script>
+
+              var config = {
+                apiKey: "AIzaSyBJhkzGgVEKHTb3l0cibmg5VtICnCzPcCc",
+                authDomain: "esp-32-flutter-firebase-d47ed.firebaseapp.com",
+                databaseURL: "https://esp-32-flutter-firebase-d47ed-default-rtdb.firebaseio.com",
+                projectId: "esp-32-flutter-firebase-d47ed",
+                storageBucket: "esp-32-flutter-firebase-d47ed.appspot.com",
+                messagingSenderId: "464653828035",
+                appId: "1:464653828035:web:89c1f2f063b5c21885c776"
+              };
+              firebase2.initializeApp(config);
+
+              var tem = document2.getElementById('tem');
+              var dbRef2 = firebase2.database().ref().child('humidity');
+              dbRef2.on('value2', snap2 => tem.innerText = snap2.val());
+
+
+            </script>
+
+
+
+          </div>
+          <div class='column has-text-centered'>
+            <h1 style='font-size: 4rem'>Temperatura</h1>
+            <h1 id="holaMundo" style='font-size: 7rem'></h1>
+
+            <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+        
+
+            <script>
+
+              var contenido = document.querySelector('#contenido')
+              var config2 = {
+                apiKey: "AIzaSyBJhkzGgVEKHTb3l0cibmg5VtICnCzPcCc",
+                authDomain: "esp-32-flutter-firebase-d47ed.firebaseapp.com",
+                databaseURL: "https://esp-32-flutter-firebase-d47ed-default-rtdb.firebaseio.com",
+                projectId: "esp-32-flutter-firebase-d47ed",
+                storageBucket: "esp-32-flutter-firebase-d47ed.appspot.com",
+                messagingSenderId: "464653828035",
+                appId: "1:464653828035:web:89c1f2f063b5c21885c776"
+              };
+              firebase.initializeApp(config2);
+
+              var holaMundo = document.getElementById('holaMundo');
+              var dbRef = firebase.database().ref().child('temperature');
+              dbRef.on('value', snap => holaMundo.innerText = snap.val());
+
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>
